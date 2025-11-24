@@ -7,10 +7,15 @@
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "11",
-			"installGradle": "false"
+			"installGradle": "false",
+			"installMaven": "false"
 		},
 		"ghcr.io/devcontainers/features/git:1": {
 			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"version": "latest",
+			"moby": true
 		}
 	},
 	"customizations": {
@@ -22,13 +27,17 @@
 				"vscjava.vscode-java-debug",
 				"vscjava.vscode-java-test",
 				"vscjava.vscode-maven",
-				"EditorConfig.EditorConfig"
+				"EditorConfig.EditorConfig",
+				"asciidoctor.asciidoctor-vscode",
+				"ms-azuretools.vscode-docker"
 			],
 			"settings": {
 				"java.configuration.updateBuildConfiguration": "automatic",
-				"java.server.launchMode": "Standard"
+				"java.server.launchMode": "Standard",
+				"java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current"
 			}
 		}
 	},
+	"forwardPorts": [],
 	"postCreateCommand": "bash -c './gradlew --version && echo \"JBang development environment ready\"'"
 }
