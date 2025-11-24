@@ -1,0 +1,66 @@
+tasks:
+    build:
+        name: Build JBang
+        description: Build the JBang project using Gradle
+        command: |
+            ./gradlew build
+        triggeredBy:
+            - manual
+
+    test:
+        name: Run Tests
+        description: Run all JUnit tests
+        command: |
+            ./gradlew test
+        triggeredBy:
+            - manual
+
+    clean:
+        name: Clean Build
+        description: Clean build artifacts
+        command: |
+            ./gradlew clean
+        triggeredBy:
+            - manual
+
+    format:
+        name: Format Code
+        description: Format code using Spotless
+        command: |
+            ./gradlew spotlessApply
+        triggeredBy:
+            - manual
+
+    check-format:
+        name: Check Formatting
+        description: Check code formatting without applying changes
+        command: |
+            ./gradlew spotlessCheck
+        triggeredBy:
+            - manual
+
+    install-local:
+        name: Install Locally
+        description: Build and install JBang distribution locally
+        command: |
+            ./gradlew installDist
+        triggeredBy:
+            - manual
+
+    version:
+        name: Show Version
+        description: Print current JBang version
+        command: |
+            ./gradlew printVersion
+        triggeredBy:
+            - manual
+
+    setup:
+        name: Initial Setup
+        description: Download dependencies and verify build
+        command: |
+            ./gradlew --version
+            echo "Gradle is ready"
+        triggeredBy:
+            - postDevcontainerStart
+
