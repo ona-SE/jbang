@@ -55,6 +55,30 @@ tasks:
         triggeredBy:
             - manual
 
+    assemble-dist:
+        name: Assemble Distribution
+        description: Create distribution archives
+        command: |
+            ./gradlew assembleDist
+        triggeredBy:
+            - manual
+
+    shadow-jar:
+        name: Build Shadow Jar
+        description: Build fat jar with all dependencies
+        command: |
+            ./gradlew shadowJar
+        triggeredBy:
+            - manual
+
+    javadoc:
+        name: Generate Javadoc
+        description: Generate API documentation
+        command: |
+            ./gradlew javadoc
+        triggeredBy:
+            - manual
+
     setup:
         name: Initial Setup
         description: Download dependencies and verify build
